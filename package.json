@@ -1,0 +1,47 @@
+{
+    "name": "zoom-recording-backup",
+    "version": "2.0.0",
+    "description": "Production-ready Zoom recording backup to Google Drive with email automation",
+    "main": "cli.js",
+    "scripts": {
+        "start": "node cli.js",
+        "start:bot": "node mail-bot.js",
+        "dashboard:build": "cd dashboard/client && npm run build",
+        "backup": "node cli.js backup",
+        "oauth-setup": "node cli.js oauth-setup",
+        "config-setup": "node cli.js config-setup",
+        "deploy": "pm2 start ecosystem.config.js",
+        "deploy:all": "pm2 start ecosystem.config.js --only mail-bot && pm2 start ecosystem.config.js --only dashboard",
+        "cleanup:logs": "node scripts/log-cleanup.js",
+        "cleanup:logs:dry": "node scripts/log-cleanup.js --dry-run",
+        "token:status": "node scripts/token-manager.js status",
+        "token:refresh": "node scripts/token-manager.js refresh",
+        "health": "curl -s http://localhost:3456/health | node -e \"console.log(JSON.parse(require('fs').readFileSync('/dev/stdin').toString()))\"",
+        "test": "node --test test/*.test.js"
+    },
+    "keywords": [
+        "zoom",
+        "google-drive",
+        "backup",
+        "cli",
+        "automation"
+    ],
+    "author": "Shilbhushan Khanderao",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.9.0",
+        "cli-progress": "^3.12.0",
+        "commander": "^12.1.0",
+        "dotenv": "^16.4.5",
+        "googleapis": "^149.0.0",
+        "imap-simple": "^5.1.0",
+        "mailparser": "^3.7.1",
+        "nodemailer": "^6.9.13",
+        "pg": "^8.22.0",
+        "winston": "^3.11.0",
+        "winston-daily-rotate-file": "^5.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

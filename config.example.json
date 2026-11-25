@@ -1,0 +1,14 @@
+{
+  "userId": "your_zoom_user_id_here",
+  "savePath": "./downloads",
+  "googleFolder": "your_google_drive_folder_id_here",
+  "deleteFromZoom": false,
+  "zoomClientId": "your_zoom_client_id_here",
+  "zoomClientSecret": "your_zoom_client_secret_here",
+  "zoomAccountId": "your_zoom_account_id_here",
+  "googleCredentialsPath": "./oauth_credentials.json",
+  "maxRetries": 3,
+  "minFreeSpaceGB": 20,
+  "retryDelay": 1000,
+  "bandwidthLimit": 0
+}
